@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 function initAuthForm() {
     const authForm = document.querySelector(".auth-form");
+    console.log("Попытка авторизации пользователя с email: " + loginEmail);
     if (!authForm) return;
     authForm.addEventListener("submit", function (event) {
         event.preventDefault();
