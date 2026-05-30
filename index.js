@@ -1,3 +1,4 @@
+console.log("AutoService: Главная страница успешно загружена.");
 document.addEventListener("DOMContentLoaded", () => {
     const heroSection = document.querySelector(".hero");
     if (heroSection) {
