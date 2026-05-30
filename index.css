@@ -258,3 +258,7 @@ input.error {
 body.light-theme input.error {
     background-color: rgba(227, 6, 19, 0.2) !important;
 }
+.signin-button:hover, .more-details-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(227, 6, 19, 0.4);
+}
