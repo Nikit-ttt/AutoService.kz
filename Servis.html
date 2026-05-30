@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoService</title>
+    <link rel="stylesheet" href="cssServ.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+            <span>AutoService</span>
+        </div>
+        <button type="button" class="mobile-menu-btn" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+        </button>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="Servis.html">Услуги</a></li>
+            <li><a href="Sign in.html">Вход</a></li>
+            <li><a href="Register.html">Регистрация</a></li>
+            <li><button type="button" id="theme-toggle" class="theme-btn">Тема</button></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="services-header">
+        <h1>Наши услуги</h1>
+    </section>
+    <div class="controls-panel">
+        <input type="text" id="searchInput" placeholder="Поиск по названию или описанию..." class="search-input">
+        <div class="filter-group">
+            <label>Категория:</label>
+            <select id="categoryFilter">
+                <option value="all">Все</option>
+                <option value="diagnostic">Диагностика</option>
+                <option value="repair">Ремонт</option>
+                <option value="maintenance">Обслуживание</option>
+            </select>
+        </div>
+        <div class="sort-group">
+            <label>Сортировать по:</label>
+            <select id="sortBy">
+                <option value="nameAsc">Название (А→Я)</option>
+                <option value="nameDesc">Название (Я→А)</option>
+                <option value="priceAsc">Цена (дешёвые↑)</option>
+                <option value="priceDesc">Цена (дорогие↓)</option>
+            </select>
+        </div>
+    </div>
+    <section class="services-grid" id="servicesGrid"></section>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+            <span>AutoService</span>
+            <p>Современный онлайн-сервис для работы с вашим автомобилем</p>
+        </div>
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <ul>
+                <li>+7 (777) 512-45-48</li>
+                <li>nikitazaj@gmail.com</li>
+                <li>г. Петропавловск, ул. Сатпаева 2</li>
+                <li>Пн-Пт: 9:00 - 21:00</li>
+            </ul>
+        </div>
+        <div class="footer-map">
+            <img src="Cartin/Cart.jpg" alt="Карта" width="250">
+        </div>
+    </div>
+</footer>
+<script src="js.js"></script>
+<script src="Servis.js"></script>
+</body>
+</html>
