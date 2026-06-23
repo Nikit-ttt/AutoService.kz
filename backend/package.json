@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
   "start": "node app.js",
-  "build": "npm rebuild sqlite3 --build-from-source && npm install"
+  "build": "npm install --npm_config_build_from_source=true"
 },
 "engines": {
   "node": "20.11.0"
