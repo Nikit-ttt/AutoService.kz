@@ -4,18 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "start": "node app.js",
-  "build": "npm install --npm_config_build_from_source=true"
-},
-"engines": {
-  "node": "20.11.0"
-},
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "20.11.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1",
-    "sqlite3": "^6.0.1"
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.2.1"
   }
 }
