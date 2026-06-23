@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoService - Вход</title>
+    <link rel="stylesheet" href="Sign in.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+                <span>AutoService</span>
+            </div>
+            <button type="button" class="mobile-menu-btn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="Servis.html">Услуги</a></li>
+                <li><a href="Sign in.html">Вход</a></li>
+                <li><a href="Register.html">Регистрация</a></li>
+                <li><button type="button" id="theme-toggle" class="theme-btn">Тема</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="auth-main">
+        <div class="auth-card">
+            <div class="user-icon">
+                <img src="Cartin/user icon.jpg" alt="User Icon" width="80" height="80">
+            </div>
+            <form class="auth-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Имя пользователя (Email)" name="username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Пароль" name="password" required>
+                </div>
+                <div class="error-message" id="login-error"></div>
+                <button type="submit" class="signin-button">Войти</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+                <span>AutoService</span>
+                <p>Современный онлайн-сервис для работы с вашим автомобилем</p>
+            </div>
+            <div class="footer-contacts">
+                <h3>Контакты</h3>
+                <ul>
+                    <li>+7 (777) 512-45-48</li>
+                    <li>nikitazajdel@gmail.com</li>
+                    <li>г. Петропавловск, ул. Сатпаева 2</li>
+                    <li>Пн-Пт: 9:00 - 21:00</li>
+                </ul>
+            </div>
+            <div class="footer-map">
+                <img src="Cartin/Cart.jpg" alt="Карта проезда" width="200" height="120" style="border-radius: 8px;">
+            </div>
+        </div>
+    </footer>
+    <script src="js.js"></script>
+    <script src="Sign in.js"></script>
+</body>
+</html>

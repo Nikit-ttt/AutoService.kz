@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Полный спектр услуг по ремонту и обслуживанию автомобилей в Петропавловске.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoService</title>
+    <link rel="stylesheet" href="Servis.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+            <span>AutoService</span>
+        </div>
+        <button type="button" class="mobile-menu-btn" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="Servis.html">Услуги</a></li>
+            <li><a href="Sign in.html">Вход</a></li>
+            <li><a href="Register.html">Регистрация</a></li>
+            <li><button type="button" id="theme-toggle" class="theme-btn">Тема</button></li>
+        </ul>
+    </nav>
+</header>
+<main>
+<div id="services-container" class="services-grid">
+    </div>
+    <section class="services-header">
+        <h1>Наши услуги</h1>
+        <p>Профессиональное обслуживание вашего автомобиля в Петропавловске</p>
+    </section>
+
+    <div class="controls-panel">
+        <div class="search-group">
+            <label for="searchInput">Поиск:</label>
+            <input type="text" id="searchInput" placeholder="Введите название услуги..." class="search-input">
+        </div>
+        <div class="filter-group">
+            <label for="categoryFilter">Категория:</label>
+            <select id="categoryFilter">
+                <option value="all">Все категории</option>
+                <option value="Двигатель">Двигатель</option>
+                <option value="Подвеска">Подвеска</option>
+                <option value="Ходовая">Ходовая</option>
+                <option value="Тормоза">Тормоза</option>
+            </select>
+        </div>
+        <div class="sort-group">
+            <label for="sortBy">Сортировка:</label>
+            <select id="sortBy">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">Цена: по возрастанию</option>
+                <option value="price-desc">Цена: по убыванию</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="limitSelect">Показать:</label>
+            <select id="limitSelect">
+                <option value="all">Все</option>
+                <option value="3">Только 3</option>
+                <option value="2">Только 2</option>
+            </select>
+        </div>
+        <div style="display: flex; gap: 5px; align-items: center; margin-left: auto;">
+            <input type="number" id="idInput" placeholder="ID (1-6)" style="padding: 8px; width: 80px; border-radius: 4px; border: 1px solid #ccc;">
+            <button type="button" id="idSearchBtn" style="padding: 8px 12px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Найти ID</button>
+        </div>
+    </div>
+    <section class="services-grid" id="servicesGrid"></section>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+            <span>AutoService</span>
+            <p>Современный онлайн-сервис для работы с вашим автомобилем</p>
+        </div>
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <ul>
+                <li>+7 (777) 512-45-48</li>
+                <li>nikitazajdel@gmail.com</li>
+                <li>г. Петропавловск, ул. Сатпаева 2</li>
+                <li>Пн-Пт: 9:00 - 21:00</li>
+            </ul>
+        </div>
+        <div class="footer-map">
+            <img src="Cartin/Cart.jpg" alt="Карта проезда" width="250" height="150">
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 AutoService. Все права защищены. Разработано: Nikit_ttt</p>
+    </div>
+</footer>
+<script src="js.js"></script>
+<script src="Servis.js"></script>
+</body>
+</html>

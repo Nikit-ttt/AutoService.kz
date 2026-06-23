@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoService</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="Cartin/logo.jpg" alt="AutoService Logo" width="60" height="60">
+            <span>AutoService</span>
+        </div>
+        <button type="button" class="mobile-menu-btn" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+        </button>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="Servis.html">Услуги</a></li>
+            <li><a href="Sign in.html">Вход</a></li>
+            <li><a href="Register.html">Регистрация</a></li>
+            <li><button type="button" id="theme-toggle" class="theme-btn">Тема</button></li>
+        </ul>
+    </nav>
+</header>
+<main class="auth-main">
+    <div class="auth-card" style="max-width: 450px;">
+        <div class="user-icon">
+            <img src="Cartin/user icon.jpg" alt="User Icon" width="90" height="90" style="border-radius: 50%;">
+        </div>
+        <h2>Регистрация</h2>
+        <form id="register-form" class="auth-form" novalidate>
+            <div class="form-group">
+                <input type="text" id="fullname" name="fullname" placeholder="Полное имя" required>
+                <div class="error-message" data-for="fullname"></div>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Электронная почта" required>
+                <div class="error-message" data-for="email"></div>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+                <div class="error-message" data-for="phone"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Пароль (мин. 6 символов)" required>
+                <div class="error-message" data-for="password"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Подтвердите пароль" required>
+                <div class="error-message" data-for="confirm_password"></div>
+            </div>
+            <button type="submit" class="signin-button">Зарегистрироваться</button>
+        </form>
+    </div>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="60" height="60">
+            <span>AutoService</span>
+            <p>Современный онлайн-сервис для работы с вашим автомобилем</p>
+        </div>
+        <div class="footer-contacts">
+            <h3>Контакты</h3>
+            <ul>
+                <li>+7 (777) 512-45-48</li>
+                <li>nikitazajdel@gmail.com</li>
+                <li>г. Петропавловск, ул. Сатпаева 2</li>
+                <li>Пн-Пт: 9:00 - 21:00</li>
+            </ul>
+        </div>
+        <div class="footer-map">
+            <img src="Cartin/Cart.jpg" alt="Карта проезда" width="250" height="150">
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 AutoService. Все права защищены. Разработано: Nikit_ttt</p>
+    </div>
+</footer>
+<script src="js.js"></script>
+<script src="Register.js"></script>
+</body>
+</html>

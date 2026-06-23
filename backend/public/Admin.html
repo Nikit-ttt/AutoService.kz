@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель — AutoService</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="admin-layout">
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <img src="Cartin/logo.jpg" alt="AutoService" width="44" height="44">
+            <span>AutoService</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-tab="services">
+                <span class="nav-icon">🔧</span> Услуги
+            </a>
+            <a href="#" class="nav-item" data-tab="users">
+                <span class="nav-icon">👥</span> Пользователи
+            </a>
+            <a href="#" class="nav-item" data-tab="appointments">
+                <span class="nav-icon">📅</span> Записи
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span> На сайт
+            </a>
+            <a href="#" class="nav-item" id="admin-logout">
+                <span class="nav-icon">🚪</span> Выйти
+            </a>
+        </div>
+    </aside>
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1 class="page-title" id="page-title">Управление услугами</h1>
+            <div class="header-actions">
+                <span class="admin-badge">Администратор</span>
+            </div>
+        </header>
+        <section class="tab-content active" id="tab-services">
+            <div class="section-toolbar">
+                <input type="text" id="search-services" placeholder="Поиск по названию..." class="toolbar-search">
+                <button class="btn btn-primary" id="open-add-service">+ Добавить услугу</button>
+            </div>
+            <div class="table-wrap">
+                <table class="admin-table" id="services-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Цена (₸)</th>
+                            <th>Длительность</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="services-tbody">
+                        <tr><td colspan="6" class="loading">Загрузка...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="tab-content" id="tab-users">
+            <div class="section-toolbar">
+                <input type="text" id="search-users" placeholder="Поиск по имени или email..." class="toolbar-search">
+            </div>
+            <div class="table-wrap">
+                <table class="admin-table" id="users-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Имя</th>
+                            <th>Email</th>
+                            <th>Телефон</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <tr><td colspan="5" class="loading">Загрузка...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="tab-content" id="tab-appointments">
+            <div class="section-toolbar">
+                <input type="text" id="search-appointments" placeholder="Поиск по клиенту или услуге..." class="toolbar-search">
+                <select id="filter-status" class="toolbar-select">
+                    <option value="all">Все статусы</option>
+                    <option value="Ожидается">Ожидается</option>
+                    <option value="Подтверждено">Подтверждено</option>
+                    <option value="Выполнено">Выполнено</option>
+                    <option value="Отменено">Отменено</option>
+                </select>
+            </div>
+            <div class="table-wrap">
+                <table class="admin-table" id="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Клиент</th>
+                            <th>Услуга</th>
+                            <th>Дата</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointments-tbody">
+                        <tr><td colspan="6" class="loading">Загрузка...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+ 
+    </main>
+</div>
+<div class="modal-overlay" id="service-modal">
+    <div class="modal-card">
+        <button class="modal-close" id="close-service-modal">&times;</button>
+        <h2 id="modal-title">Добавить услугу</h2>
+        <div class="form-group">
+            <label>Название *</label>
+            <input type="text" id="svc-title" placeholder="Название услуги">
+        </div>
+        <div class="form-group">
+            <label>Описание</label>
+            <textarea id="svc-desc" placeholder="Описание услуги" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Цена (₸) *</label>
+            <input type="number" id="svc-price" placeholder="0" min="0">
+        </div>
+        <div class="form-group">
+            <label>Путь к изображению</label>
+            <input type="text" id="svc-img" placeholder="Cartin/example.jpg">
+        </div>
+        <div class="form-group">
+            <label>Длительность</label>
+            <input type="text" id="svc-duration" placeholder="30-40 мин">
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-secondary" id="cancel-service-modal">Отмена</button>
+            <button class="btn btn-primary" id="save-service">Сохранить</button>
+        </div>
+    </div>
+</div>
+<div class="modal-overlay" id="confirm-modal">
+    <div class="modal-card modal-card-sm">
+        <h2>Подтвердите удаление</h2>
+        <p id="confirm-text">Вы уверены? Это действие необратимо.</p>
+        <div class="modal-actions">
+            <button class="btn btn-secondary" id="confirm-cancel">Отмена</button>
+            <button class="btn btn-danger" id="confirm-ok">Удалить</button>
+        </div>
+    </div>
+</div>
+<div id="toast" class="toast"></div>
+<script src="admin.js"></script>
+</body>
+</html>
