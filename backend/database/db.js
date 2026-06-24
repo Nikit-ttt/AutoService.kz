@@ -4,9 +4,11 @@ const dbPath = path.join(__dirname, 'project.db');
 const db = new Database(dbPath, { verbose: console.log });
 console.log('Подключено к базе данных SQLite через better-sqlite3.');
 db.pragma('foreign_keys = ON');
+const getArgs = (params) => (Array.isArray(params) && params.length > 0 ? params : []);
 db.all = (sql, params, callback) => {
     try {
-        const rows = db.prepare(sql).all(...params);
+        const args = getArgs(params);
+        const rows = db.prepare(sql).all(...args);
         callback(null, rows);
     } catch (err) {
         console.error('Ошибка в db.all:', err.message);
@@ -15,7 +17,8 @@ db.all = (sql, params, callback) => {
 };
 db.get = (sql, params, callback) => {
     try {
-        const row = db.prepare(sql).get(...params);
+        const args = getArgs(params);
+        const row = db.prepare(sql).get(...args);
         callback(null, row);
     } catch (err) {
         console.error('Ошибка в db.get:', err.message);
@@ -24,7 +27,8 @@ db.get = (sql, params, callback) => {
 };
 db.run = function(sql, params, callback) {
     try {
-        const info = db.prepare(sql).run(...params);
+        const args = getArgs(params);
+        const info = db.prepare(sql).run(...args);
         const context = { 
             lastID: info.lastInsertRowid, 
             changes: info.changes 
