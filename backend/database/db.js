@@ -4,6 +4,36 @@ const dbPath = path.join(__dirname, 'project.db');
 const db = new Database(dbPath, { verbose: console.log });
 console.log('Подключено к базе данных SQLite через better-sqlite3.');
 db.pragma('foreign_keys = ON');
+db.exec(`
+  CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    phone TEXT,
+    role TEXT DEFAULT 'user'
+  );
+
+  CREATE TABLE IF NOT EXISTS services (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    description TEXT,
+    price REAL NOT NULL,
+    img TEXT,
+    duration TEXT
+  );
+
+  CREATE TABLE IF NOT EXISTS appointments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    service_id INTEGER,
+    appointment_date TEXT,
+    status TEXT DEFAULT 'Ожидается',
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
+  );
+`);
+console.log('Проверка структуры таблиц успешно заверешена.');
 const getArgs = (params) => (Array.isArray(params) && params.length > 0 ? params : []);
 db.all = (sql, params, callback) => {
     try {
